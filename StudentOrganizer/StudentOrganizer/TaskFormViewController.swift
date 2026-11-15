@@ -24,6 +24,8 @@ class TaskFormViewController: UIViewController {
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dueDatePicker.contentHorizontalAlignment = .leading
  
         if let task = taskToEdit {
             // Edit mode: fill the controls with the saved values.

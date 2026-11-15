@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25407"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -120,6 +121,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="BwU-F5-8iY" kind="show" identifier="ShowTaskFormSegue" id="ohU-3J-1KA"/>
+                        <segue destination="l5H-v6-xzP" kind="show" identifier="ShowNotesSegue" id="9KZ-7H-9re"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADP-Bx-nlE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -222,11 +224,102 @@
                         <outlet property="dueDatePicker" destination="QnT-SX-flU" id="PUG-LA-ciY"/>
                         <outlet property="prioritySegmentedControl" destination="x2h-VR-1fQ" id="Ddr-52-BQ0"/>
                         <outlet property="titleTextField" destination="lck-9Y-UaB" id="Ybm-Dy-yjF"/>
+                        <segue destination="l5H-v6-xzP" kind="show" identifier="ShowNotesSegue" id="Ylk-hB-ZTv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHc-Ze-a26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3503" y="144"/>
+        </scene>
+        <!--Notes View Controller-->
+        <scene sceneID="eNp-8J-b0o">
+            <objects>
+                <viewController title="Notes" id="l5H-v6-xzP" userLabel="Notes View Controller" customClass="NotesViewController" customModule="StudentOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8v7-20-IOr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z0i-tF-S77">
+                                <rect key="frame" x="0.0" y="142" width="393" height="676"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kra-CD-uMN">
+                                    <size key="itemSize" width="200" height="272"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCell" id="6pW-2C-UB2" customClass="NoteCell" customModule="StudentOrganizer" customModuleProvider="target">
+                                        <rect key="frame" x="96.666666666666671" y="0.0" width="200" height="272"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Pj-wD-l1K">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="272"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="egY-VQ-r80">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="egY-VQ-r80" secondAttribute="height" multiplier="1:1" id="5EM-Rp-SOO"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9r-MD-mcw">
+                                                    <rect key="frame" x="8" y="204" width="184" height="64"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e9r-MD-mcw" firstAttribute="top" secondItem="egY-VQ-r80" secondAttribute="bottom" constant="4" id="22H-AU-Pub"/>
+                                                <constraint firstItem="egY-VQ-r80" firstAttribute="top" secondItem="9Pj-wD-l1K" secondAttribute="top" id="6E5-MC-lXn"/>
+                                                <constraint firstItem="e9r-MD-mcw" firstAttribute="leading" secondItem="9Pj-wD-l1K" secondAttribute="leading" constant="8" id="Moh-kE-fOJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="egY-VQ-r80" secondAttribute="trailing" id="YsC-kH-8TJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="e9r-MD-mcw" secondAttribute="bottom" constant="4" id="aIi-2C-egy"/>
+                                                <constraint firstAttribute="trailing" secondItem="e9r-MD-mcw" secondAttribute="trailing" constant="8" id="gtu-mm-xom"/>
+                                                <constraint firstItem="egY-VQ-r80" firstAttribute="leading" secondItem="9Pj-wD-l1K" secondAttribute="leading" id="p9e-NI-pSC"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="200" height="272"/>
+                                        <connections>
+                                            <outlet property="noteLabel" destination="e9r-MD-mcw" id="FDu-kj-Mj1"/>
+                                            <outlet property="photoImageView" destination="egY-VQ-r80" id="dQ2-gk-6dz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OYP-eY-DaN">
+                                <rect key="frame" x="0.0" y="77" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="SlI-Ij-1dB">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fgF-cR-sc6">
+                                            <connections>
+                                                <action selector="addNoteTapped:" destination="l5H-v6-xzP" id="6w8-tJ-KEX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GsR-EW-9ty"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GsR-EW-9ty" firstAttribute="trailing" secondItem="Z0i-tF-S77" secondAttribute="trailing" id="7Ac-eI-E5q"/>
+                            <constraint firstItem="Z0i-tF-S77" firstAttribute="top" secondItem="GsR-EW-9ty" secondAttribute="top" id="DS2-No-c19"/>
+                            <constraint firstItem="GsR-EW-9ty" firstAttribute="bottom" secondItem="Z0i-tF-S77" secondAttribute="bottom" id="aQF-tS-25v"/>
+                            <constraint firstItem="Z0i-tF-S77" firstAttribute="leading" secondItem="GsR-EW-9ty" secondAttribute="leading" id="ax9-Eo-vxd"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="SsN-4k-mtf"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Z0i-tF-S77" id="t0b-av-Chu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ez-Mh-uGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4417.5572519083971" y="143.66197183098592"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="haL-ld-nYJ">
@@ -234,6 +327,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h6b-dM-XIZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lb2-c0-2hP">
+                        <rect key="frame" x="0.0" y="59" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -246,6 +340,9 @@
             <point key="canvasLocation" x="626.71755725190837" y="143.66197183098592"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ylk-hB-ZTv"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
