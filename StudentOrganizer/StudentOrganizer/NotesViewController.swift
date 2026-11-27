@@ -108,4 +108,21 @@ class NotesViewController: UIViewController,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
     }
+    
+    // MARK: - Navigation
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            switch segue.identifier {
+            case "ShowNoteFormSegue":
+                guard let destination = segue.destination as? NoteFormViewController
+                else { return }
+                destination.subject = subject
+            case "ShowNoteDetailSegue":
+                        guard let destination = segue.destination as? NoteDetailViewController,
+                              let note = sender as? Note else { return }
+                        destination.note = note
+            default:
+                break
+            }
+        }
+
 }
