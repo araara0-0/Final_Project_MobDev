@@ -110,12 +110,12 @@
                             <barButtonItem systemItem="add" id="mLP-DV-tXF">
                                 <connections>
                                     <action selector="addTaskTapped:" destination="msc-Mq-f0t" id="WdX-df-nmL"/>
-                                    <segue destination="vnF-9q-ljm" kind="show" identifier="ShowNoteFormSegue" id="gFV-XJ-Xmg"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Notes" style="plain" id="iQc-eh-Yvk">
                                 <connections>
                                     <action selector="notesTapped:" destination="msc-Mq-f0t" id="9Sz-yG-IGA"/>
+                                    <segue destination="vnF-9q-ljm" kind="show" id="VDW-YO-8gJ"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -499,7 +499,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bGm-eH-AnK"/>
+        <segue reference="VDW-YO-8gJ"/>
         <segue reference="9KZ-7H-9re"/>
     </inferredMetricsTieBreakers>
     <resources>
